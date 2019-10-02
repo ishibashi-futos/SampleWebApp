@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
 
 import com.example.samplewebapp.model.SpeedValueUnit;
 
@@ -18,7 +19,7 @@ public class SpeedController {
   }
 
   @RequestMapping(method = RequestMethod.POST)
-  public ResponseEntity<SpeedValueUnit> post(@RequestBody SpeedValueUnit valueUnit) {
+  public ResponseEntity<SpeedValueUnit> post(@RequestBody @Validated SpeedValueUnit valueUnit) {
     return new ResponseEntity<SpeedValueUnit>(new SpeedValueUnit(valueUnit.getValue(), valueUnit.getUnit()), null, HttpStatus.CREATED);
   }
 }
