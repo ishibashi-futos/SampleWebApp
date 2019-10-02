@@ -10,11 +10,9 @@ import org.springframework.validation.annotation.Validated;
 
 import com.example.samplewebapp.model.SpeedValueUnit;
 
-import com.example.samplewebapp.fw.ControllerBase;
-
 @RestController
 @RequestMapping("/api/speed")
-public class SpeedController extends ControllerBase {
+public class SpeedController {
   @RequestMapping(method = RequestMethod.GET)
   public SpeedValueUnit get() {
     return new SpeedValueUnit();
