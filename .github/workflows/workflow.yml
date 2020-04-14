@@ -1,5 +1,7 @@
 name: Main workflow
+
 on: [push, pull_request]
+
 jobs:
   compiles:
 
@@ -12,9 +14,9 @@ jobs:
         with:
           java-version: 1.8
       - name: build
-          run: |
-            chmod +x ./mvnw
-            ./mvnw clean compile
+        run: |
+          chmod +x ./mvnw
+          ./mvnw clean compile
 
   build-artifacts:
 
@@ -27,9 +29,9 @@ jobs:
         with:
           java-version: 1.8
       - name: build
-          run: |
-            chmod +x ./mvnw
-            ./mvnw clean install
+        run: |
+          chmod +x ./mvnw
+          ./mvnw clean install
       - name: Upload Artifacts
         uses: actions/upload-artifacts@v1
         with:
